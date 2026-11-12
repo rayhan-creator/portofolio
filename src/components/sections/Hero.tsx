@@ -1,15 +1,14 @@
 import { useState, useRef } from 'react'
 import { motion, useSpring } from 'framer-motion'
-import { ArrowDownRight, Sparkles, Code2, Compass, Layers, FileText, Send, Award } from 'lucide-react'
+import { ArrowDownRight, Sparkles, FileText, Send, Award, MessageSquare } from 'lucide-react'
 import { RAYHAN_PROFILE } from '../../data/mockCms'
 
 interface HeroProps {
-  onExploreWork: () => void
   onOpenContact: () => void
-  onExploreCertificates?: () => void
+  onExploreCertificates: () => void
 }
 
-export function Hero({ onExploreWork, onOpenContact, onExploreCertificates }: HeroProps) {
+export function Hero({ onOpenContact, onExploreCertificates }: HeroProps) {
   const [isShattered, setIsShattered] = useState(false)
   const containerRef = useRef<HTMLDivElement>(null)
 
@@ -25,8 +24,8 @@ export function Hero({ onExploreWork, onOpenContact, onExploreCertificates }: He
     mouseY.set(y * 30)
   }
 
-  const primaryTitle = "RAYHAN ADRIAN"
-  const secondaryTitle = "FRONT-END WEB DEVELOPER & UI SPECIALIST"
+  const primaryTitle = "MUHAMMAD RAYHAN ADRIAN"
+  const secondaryTitle = "REKAYASA PERANGKAT LUNAK // UI/UX & WEB DEVELOPER"
 
   // Shatter physics vectors for each letter
   const lettersPrimary = primaryTitle.split('').map((char, i) => {
@@ -77,7 +76,7 @@ export function Hero({ onExploreWork, onOpenContact, onExploreCertificates }: He
           data-cursor="pointer"
           data-cursor-text="SHATTER"
         >
-          {/* 3D PORTRAIT & HOLOGRAPHIC REVELATION LAYER (Real Photo of Rayhan Adrian) */}
+          {/* 3D PORTRAIT & HOLOGRAPHIC REVELATION LAYER (Real Photo of Muhammad Rayhan Adrian) */}
           <motion.div
             animate={{
               opacity: isShattered ? 1 : 0.08,
@@ -94,7 +93,7 @@ export function Hero({ onExploreWork, onOpenContact, onExploreCertificates }: He
                 <img
                   src={RAYHAN_PROFILE.photoUrl}
                   alt={RAYHAN_PROFILE.fullName}
-                  className="w-full h-full object-cover object-top opacity-95 scale-105 transition-all duration-700"
+                  className="w-full h-full object-cover object-center opacity-95 scale-105 transition-all duration-700"
                 />
                 <div className="absolute inset-0 bg-gradient-to-b from-transparent via-cyan-400/10 to-slate-950/70 pointer-events-none" />
                 <div className="absolute bottom-4 inset-x-4 py-1.5 px-3 rounded-full bg-slate-900/90 backdrop-blur-md border border-white/20 text-center">
@@ -179,7 +178,7 @@ export function Hero({ onExploreWork, onOpenContact, onExploreCertificates }: He
           transition={{ duration: 0.8, delay: 0.2 }}
           className="max-w-2xl font-sans font-light text-fluid-body text-slate-300 mt-6 sm:mt-8 leading-relaxed"
         >
-          Siswa Rekayasa Perangkat Lunak di <span className="text-white font-medium">Rabbaanii Islamic School</span>. Spesialis dalam merancang & membangun website modern yang memadukan <span className="text-cyan-300 font-medium">clean code</span>, interaksi <span className="text-emerald-300 font-medium">Three.js 3D</span>, dan estetika <span className="text-violet-300 font-medium">Glassmorphism</span>.
+          Siswa kelas XI jurusan Rekayasa Perangkat Lunak di <span className="text-white font-medium">Rabbaanii Islamic School</span>. Fokus pada <span className="text-cyan-300 font-medium">UI/UX Design di Figma</span>, <span className="text-emerald-300 font-medium">Mobile Development (Flutter & Dart)</span>, dan <span className="text-violet-300 font-medium">Front-End Web Development</span> modern.
         </motion.p>
 
         {/* Fluid Action Island */}
@@ -209,17 +208,17 @@ export function Hero({ onExploreWork, onOpenContact, onExploreCertificates }: He
             className="group relative px-6 py-3.5 rounded-2xl bg-white/10 hover:bg-white/15 border border-white/15 hover:border-cyan-400/50 text-slate-200 font-sans font-medium text-sm tracking-wide shadow-glass transition-all duration-300 hover:scale-[1.02] flex items-center gap-2"
           >
             <Award className="w-4 h-4 text-cyan-400 group-hover:scale-110 transition-transform" />
-            <span>Lihat Sertifikat</span>
+            <span>Lihat Galeri Sertifikat</span>
           </button>
 
-          {/* Work Gallery Shortcut */}
+          {/* Contact Shortcut */}
           <button
-            onClick={onExploreWork}
+            onClick={onOpenContact}
             data-cursor="pointer"
             className="group relative px-6 py-3.5 rounded-2xl bg-slate-900/60 backdrop-blur-xl border border-white/15 hover:border-emerald-400/50 text-slate-200 font-sans font-medium text-sm tracking-wide shadow-glass hover:bg-white/[0.08] transition-all duration-300 hover:scale-[1.02] flex items-center gap-2"
           >
-            <Compass className="w-4 h-4 text-emerald-400 group-hover:rotate-45 transition-transform" />
-            <span>Portofolio Web</span>
+            <MessageSquare className="w-4 h-4 text-emerald-400 group-hover:translate-x-0.5 transition-transform" />
+            <span>Kirim Pesan / Kontak</span>
           </button>
         </motion.div>
 

@@ -1,6 +1,6 @@
 import { useState, useEffect } from 'react'
 import { motion, AnimatePresence } from 'framer-motion'
-import { Menu, X, Github, ArrowUpRight, Sparkles, FileText, Award } from 'lucide-react'
+import { Menu, X, Github, ArrowUpRight, FileText } from 'lucide-react'
 import { RAYHAN_PROFILE } from '../../data/mockCms'
 
 interface NavbarProps {
@@ -23,8 +23,6 @@ export function Navbar({ onNavigate, totalStars = 428 }: NavbarProps) {
   const navItems = [
     { label: 'Tentang', target: '#about' },
     { label: 'Sertifikat', target: '#certificates' },
-    { label: 'Portofolio', target: '#work' },
-    { label: 'Keahlian', target: '#tech-stack' },
     { label: 'GitHub', target: '#github-stats' },
     { label: 'Kontak', target: '#contact' },
   ]
@@ -32,10 +30,6 @@ export function Navbar({ onNavigate, totalStars = 428 }: NavbarProps) {
   const handleNavClick = (target: string) => {
     setMobileMenuOpen(false)
     onNavigate(target)
-  }
-
-  const handleOpenPdf = () => {
-    window.open(RAYHAN_PROFILE.cvPdfUrl, '_blank')
   }
 
   return (
@@ -56,17 +50,17 @@ export function Navbar({ onNavigate, totalStars = 428 }: NavbarProps) {
               />
             </div>
             <div className="flex flex-col text-left">
-              <span className="font-serif font-bold text-sm tracking-wider text-white group-hover:text-cyan-300 transition-colors">
-                RAYHAN ADRIAN
+              <span className="font-serif font-bold text-xs sm:text-sm tracking-wider text-white group-hover:text-cyan-300 transition-colors">
+                MUHAMMAD RAYHAN ADRIAN
               </span>
               <span className="text-[9px] uppercase tracking-widest text-slate-400 font-sans -mt-0.5">
-                Front-End & UI/UX
+                RPL • UI/UX & Web Dev
               </span>
             </div>
           </button>
 
           {/* Desktop Nav Links */}
-          <nav className="hidden md:flex items-center gap-1 px-3 py-1.5 rounded-full bg-slate-900/60 backdrop-blur-2xl border border-white/10 shadow-glass">
+          <nav className="hidden md:flex items-center gap-1.5 px-4 py-1.5 rounded-full bg-slate-900/60 backdrop-blur-2xl border border-white/10 shadow-glass">
             {navItems.map((item) => (
               <button
                 key={item.target}

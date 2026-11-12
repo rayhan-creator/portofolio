@@ -144,7 +144,7 @@ export function Contact() {
                     Instagram Pribadi
                   </span>
                   <span className="font-sans text-sm font-medium text-white group-hover:text-rose-200 transition-colors">
-                    @ryhnadrn_eann
+                    @{RAYHAN_PROFILE.instagramHandle}
                   </span>
                 </div>
               </a>
@@ -159,7 +159,7 @@ export function Contact() {
                   </span>
                   <span className="font-sans text-sm font-medium text-emerald-400 flex items-center gap-2">
                     <span className="w-2 h-2 rounded-full bg-emerald-400 animate-pulse" />
-                    Terbuka untuk Freelance & Magang
+                    Terbuka untuk PRAKERIN & Kolaborasi
                   </span>
                 </div>
               </div>
@@ -173,36 +173,44 @@ export function Contact() {
                     Lokasi
                   </span>
                   <span className="font-sans text-sm font-medium text-white">
-                    Indonesia (WIB / Remote Online)
+                    {RAYHAN_PROFILE.location}
                   </span>
                 </div>
               </div>
             </div>
           </GlassCard>
 
-          {/* Quick Direct Link to GitHub */}
-          <GlassCard irregularShape="standard" glowColor="emerald" className="p-6 flex items-center justify-between">
-            <div className="flex items-center gap-3">
-              <Github className="w-5 h-5 text-emerald-400" />
-              <div>
-                <span className="text-xs font-sans font-medium text-white block">
-                  Cek Repositori GitHub Rayhan
-                </span>
-                <span className="text-[11px] font-sans text-slate-400">
-                  github.com/{RAYHAN_PROFILE.githubUsername}
-                </span>
+          {/* Large, Easy-to-Click GitHub Repository Action Card */}
+          <a
+            href={RAYHAN_PROFILE.github}
+            target="_blank"
+            rel="noopener noreferrer"
+            data-cursor="pointer"
+            className="group block relative overflow-hidden rounded-2xl p-6 sm:p-7 bg-gradient-to-r from-slate-900/90 via-slate-850 to-slate-900/90 backdrop-blur-2xl border-2 border-emerald-500/30 hover:border-emerald-400 shadow-[0_10px_35px_rgba(16,185,129,0.15)] hover:shadow-[0_15px_45px_rgba(16,185,129,0.35)] transition-all duration-300 hover:scale-[1.02] active:scale-[0.99]"
+          >
+            <div className="flex items-center justify-between gap-4">
+              <div className="flex items-center gap-4">
+                <div className="p-3.5 rounded-2xl bg-gradient-to-tr from-emerald-500/20 to-cyan-500/20 border border-emerald-400/40 text-emerald-300 group-hover:scale-110 group-hover:text-white transition-all shadow-[0_0_20px_rgba(16,185,129,0.3)]">
+                  <Github className="w-8 h-8" />
+                </div>
+                <div>
+                  <span className="text-xs uppercase tracking-widest text-emerald-400 font-mono font-semibold block mb-0.5">
+                    KUNJUNGI REPOSITORI
+                  </span>
+                  <h4 className="font-serif font-bold text-lg sm:text-xl text-white group-hover:text-emerald-300 transition-colors">
+                    GitHub @{RAYHAN_PROFILE.githubUsername}
+                  </h4>
+                  <span className="text-xs font-sans text-slate-400">
+                    Klik di sini untuk melihat source code & repositori lengkap
+                  </span>
+                </div>
+              </div>
+
+              <div className="w-12 h-12 rounded-full bg-emerald-500/20 border border-emerald-400/30 flex items-center justify-center text-emerald-300 group-hover:bg-emerald-400 group-hover:text-slate-950 transition-all duration-300 shrink-0 shadow-[0_0_15px_rgba(16,185,129,0.3)]">
+                <ArrowRight className="w-6 h-6 group-hover:translate-x-1 transition-transform" />
               </div>
             </div>
-            <a
-              href={RAYHAN_PROFILE.github}
-              target="_blank"
-              rel="noopener noreferrer"
-              data-cursor="pointer"
-              className="p-2 rounded-lg bg-emerald-500/20 text-emerald-300 hover:bg-emerald-500 hover:text-white transition-colors"
-            >
-              <ArrowRight className="w-4 h-4" />
-            </a>
-          </GlassCard>
+          </a>
         </div>
 
         {/* Right Column: Minimalist Glass Form with Floating Labels (Spans 7 cols) */}

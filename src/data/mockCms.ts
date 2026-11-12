@@ -11,6 +11,7 @@ export interface ProfileInfo {
   github: string
   githubUsername: string
   instagram: string
+  instagramHandle: string
   linkedin: string
   location: string
   school: string
@@ -23,25 +24,26 @@ export interface ProfileInfo {
 }
 
 export const RAYHAN_PROFILE: ProfileInfo = {
-  name: 'Rayhan Adrian',
+  name: 'Muhammad Rayhan Adrian',
   fullName: 'Muhammad Rayhan Adrian',
-  nickname: 'Ray',
-  role: 'Front-End Web Developer & UI/UX Specialist',
-  tagline: 'Merging Clean Code with Liquid Glassmorphic Aesthetics',
+  nickname: 'Rayhan',
+  role: 'UI/UX Design, Front-End & Mobile Development',
+  tagline: 'Rekayasa Perangkat Lunak di Rabbaanii Islamic School',
   email: 'mhdrayhanadr@gmail.com',
   phone: '0899-8081-799',
   github: 'https://github.com/rayhan-creator',
   githubUsername: 'rayhan-creator',
-  instagram: 'https://www.instagram.com/ryhnadrn_eann',
+  instagram: 'https://www.instagram.com/rhanndrian',
+  instagramHandle: 'rhanndrian',
   linkedin: 'https://linkedin.com/in/rayhan-adrian',
-  location: 'Bekasi & Jakarta, Indonesia',
+  location: 'Bekasi Selatan, Jawa Barat, Indonesia',
   school: 'Rabbaanii Islamic School (Rekayasa Perangkat Lunak)',
   status: 'Tersedia untuk PRAKERIN, Proyek & Kolaborasi 2026/2027',
   photoUrl: '/profile.jpg',
   cvPdfUrl: '/cv-muhammad-rayhan-adrian.pdf',
-  bioShort: 'Siswa Rekayasa Perangkat Lunak di Rabbaanii Islamic School dengan ketertarikan mendalam pada Front-End, UI/UX Design, dan Mobile Application Development.',
-  bioLong: 'Halo! Saya Muhammad Rayhan Adrian (biasa dipanggil Ray). Siswa kelas XI jurusan Rekayasa Perangkat Lunak di Rabbaanii Islamic School. Saya memiliki passion kuat dalam memadukan estetika UI/UX yang intuitif dengan arsitektur kode modern (React, Tailwind CSS, TypeScript, Three.js). Peraih Bintang Prestasi (Ranking 1 selama 3 semester) dan penghafal Al-Qur\'an.',
-  philosophy: 'Terinspirasi oleh estetika minimalis, ketenangan alam 🌲, dan fluid physics. Tujuannya adalah menciptakan karya web modern yang responsif tanpa jeda, seringan sentuhan kaca cair.'
+  bioShort: 'Siswa Rekayasa Perangkat Lunak di Rabbaanii Islamic School dengan ketertarikan mendalam pada UI/UX Design, Front-End Web, dan Mobile Application Development.',
+  bioLong: 'Halo! Saya Muhammad Rayhan Adrian. Siswa kelas XI jurusan Rekayasa Perangkat Lunak di Rabbaanii Islamic School. Saya memiliki ketertarikan tinggi pada UI/UX Design dan Mobile Application Development, memadukan riset user flow dengan arsitektur kode modern. Disiplin, bertanggung jawab, peraih Bintang Prestasi (Ranking 1 selama 3 semester berturut-turut), dan penghafal Al-Qur\'an 24 Juz.',
+  philosophy: 'Terinspirasi oleh estetika minimalis, ketenangan alam 🌲, dan fluid physics. Tujuannya adalah menciptakan karya digital yang rapi, intuitif, dan responsif tanpa hambatan.'
 }
 
 export const RAYHAN_CERTIFICATES: Certificate[] = [
@@ -131,132 +133,6 @@ export const RAYHAN_CERTIFICATES: Certificate[] = [
   }
 ]
 
-export const RAYHAN_PROJECTS: Project[] = [
-  {
-    id: 'forestia-eco-ui',
-    title: 'Forestia Eco Platform',
-    category: 'E-Commerce & Minimalist Web',
-    year: '2026',
-    client: 'Forestia Bio Goods',
-    summary: 'Platform web e-commerce bertema alam dengan animasi daun interaktif, fluid checkout, dan dark/light glass mode.',
-    description: 'Didesain dan dibangun dari nol menggunakan React, Tailwind CSS, dan Framer Motion. Mengintegrasikan micro-interactions halus, navigasi tanpa reload, serta sistem katalog dinamis dengan filtering instan.',
-    tags: ['React', 'Tailwind CSS', 'Framer Motion', 'TypeScript', 'UI/UX'],
-    metrics: [
-      { label: 'Lighthouse Score', value: '98/100' },
-      { label: 'Bundle Size', value: '42 kB' },
-      { label: 'Responsiveness', value: '100% Fluid' },
-    ],
-    githubUrl: 'https://github.com/rayhan-creator/forestia-eco-ui',
-    liveUrl: 'https://forestia.demo.app',
-    accentColor: '#10b981',
-    featuredImage: 'https://images.unsplash.com/photo-1542273917363-3b1817f69a2d?auto=format&fit=crop&w=1200&q=80',
-    galleryImages: [
-      'https://images.unsplash.com/photo-1542273917363-3b1817f69a2d?auto=format&fit=crop&w=800&q=80',
-      'https://images.unsplash.com/photo-1518531933037-91b2f5f229cc?auto=format&fit=crop&w=800&q=80',
-    ],
-    achievements: [
-      'Arsitektur komponen modular berbasis atomik',
-      'Desain responsif fluid clamp tanpa layout shift (CLS 0.0)',
-      'Dukungan Dark Mode & Glassmorphism terintegrasi'
-    ]
-  },
-  {
-    id: 'lumina-glass-dashboard',
-    title: 'Lumina Glassmorphic OS',
-    category: 'Design Systems & Web App',
-    year: '2026',
-    client: 'Personal Open Source',
-    summary: 'Dashboard web interaktif dengan fisika frosted glass, dynamic ambient glow, dan real-time widget controls.',
-    description: 'Eksperimen antarmuka canggih yang menghadirkan depth 3D pada UI web browser. Menggunakan Three.js shards di latar belakang, backdrop-filter blur GPU-accelerated, dan manipulasi kursor custom.',
-    tags: ['Three.js', 'React', 'Tailwind CSS', 'GSAP', 'Vite'],
-    metrics: [
-      { label: 'Frame Rate', value: '120 FPS' },
-      { label: 'Component Set', value: '35+ Glass' },
-      { label: 'Satisfaction', value: '100%' },
-    ],
-    githubUrl: 'https://github.com/rayhan-creator/lumina-glass-dashboard',
-    liveUrl: 'https://lumina-glass.demo.app',
-    accentColor: '#06b6d4',
-    featuredImage: 'https://images.unsplash.com/photo-1618005182384-a83a8bd57fbe?auto=format&fit=crop&w=1200&q=80',
-    galleryImages: [
-      'https://images.unsplash.com/photo-1618005182384-a83a8bd57fbe?auto=format&fit=crop&w=800&q=80',
-      'https://images.unsplash.com/photo-1634017839464-5c339ebe3cb4?auto=format&fit=crop&w=800&q=80',
-    ],
-    achievements: [
-      'Shader kaca transmisi 3D dengan refleksi cahaya mouse',
-      'Inertia dragging widgets dengan pegas fisika realistis',
-      'Dukungan multi-layer frosted blur adaptif'
-    ]
-  },
-  {
-    id: 'zenith-media-showcase',
-    title: 'Zenith Creative Portfolio',
-    category: 'Front-End Architecture',
-    year: '2025',
-    client: 'Zenith Studio',
-    summary: 'Website portofolio multimedia sinematik dengan horizontal kinetic scroll dan eksplorasi typography mewah.',
-    description: 'Mengintegrasikan Lenis smooth virtual scroll dan GSAP timeline untuk transisi halaman tanpa patah-patah. Memanfaatkan Playfair Display typography dan interaksi hover pecahan teks.',
-    tags: ['GSAP', 'Lenis Scroll', 'React 18', 'Tailwind CSS'],
-    metrics: [
-      { label: 'Scrub Latency', value: '< 2ms' },
-      { label: 'Typography', value: 'Fluid Clamp' },
-      { label: 'Asset Load', value: 'Instant' },
-    ],
-    githubUrl: 'https://github.com/rayhan-creator/zenith-showcase',
-    liveUrl: 'https://zenith-showcase.demo.app',
-    accentColor: '#8b5cf6',
-    featuredImage: 'https://images.unsplash.com/photo-1507238691740-187a5b1d37b8?auto=format&fit=crop&w=1200&q=80',
-    galleryImages: [
-      'https://images.unsplash.com/photo-1507238691740-187a5b1d37b8?auto=format&fit=crop&w=800&q=80',
-    ],
-    achievements: [
-      'Sinkronisasi 100% mulus antara Lenis & GSAP ScrollTrigger',
-      'Pemisahan chunk rollup cerdas untuk kecepatan load optimal',
-      'Desain grid asimetris yang mematahkan kebiasaan layout kotak konvensional'
-    ]
-  },
-  {
-    id: 'vortex-task-flow',
-    title: 'Vortex Productivity Canvas',
-    category: 'Web App & State Management',
-    year: '2025',
-    client: 'Productivity Labs',
-    summary: 'Aplikasi manajemen alur kerja minimalis dengan canvas interaktif, drag & drop lancar, dan visualisasi status real-time.',
-    description: 'Dibangun untuk para kreator dan developer yang membutuhkan workspace digital tanpa distraksi. Dilengkapi autosave lokal, keyboard shortcuts, dan sound effects halus saat tugas diselesaikan.',
-    tags: ['React', 'TypeScript', 'Tailwind CSS', 'Framer Motion'],
-    metrics: [
-      { label: 'Action Latency', value: '0ms' },
-      { label: 'Sync Status', value: 'Real-time' },
-      { label: 'User Delight', value: '99%' },
-    ],
-    githubUrl: 'https://github.com/rayhan-creator/vortex-task-flow',
-    liveUrl: 'https://vortex-flow.demo.app',
-    accentColor: '#f43f5e',
-    featuredImage: 'https://images.unsplash.com/photo-1614741118887-7a4ee193a5fa?auto=format&fit=crop&w=1200&q=80',
-    galleryImages: [
-      'https://images.unsplash.com/photo-1614741118887-7a4ee193a5fa?auto=format&fit=crop&w=800&q=80',
-    ],
-    achievements: [
-      'Fluid gesture dragging dengan damping spring',
-      'Arsitektur state terdistribusi tanpa re-render berlebih',
-      'Micro-animations berbasis CSS variable kustom'
-    ]
-  }
-]
-
-export const RAYHAN_TECH_ITEMS: TechItem[] = [
-  { name: 'UI/UX Design & Figma', category: 'tools', proficiency: 96, highlight: 'Design Systems, User Flows, Wireframing, Auto-Layout', iconName: 'Palette' },
-  { name: 'React 18 & Vite', category: 'core', proficiency: 95, highlight: 'Hooks, Suspense, State Management, Atomic Components', iconName: 'Layers' },
-  { name: 'Tailwind CSS', category: 'core', proficiency: 98, highlight: 'Glassmorphism, Dark Mode, Fluid Clamp, Custom Shaders', iconName: 'Palette' },
-  { name: 'Mobile Dev (Flutter & Dart)', category: 'core', proficiency: 90, highlight: 'Cross-platform Android/iOS Apps, Widgets, State', iconName: 'Activity' },
-  { name: 'JavaScript & TypeScript', category: 'core', proficiency: 94, highlight: 'ESNext, Strict Typing, DOM Manipulation, Async/Await', iconName: 'Code2' },
-  { name: 'Three.js & R3F', category: 'graphics3d', proficiency: 88, highlight: '3D Glass Refraction, Meshes, Lighting, Shaders', iconName: 'Box' },
-  { name: 'GSAP & ScrollTrigger', category: 'animation', proficiency: 92, highlight: 'Complex Timelines, Kinetic Scrollers, Pinning', iconName: 'Sparkles' },
-  { name: 'Lenis Smooth Scroll', category: 'animation', proficiency: 96, highlight: 'Virtual Inertia Scrolling, Zero-Lag Integration', iconName: 'MousePointer' },
-  { name: 'Framer Motion', category: 'animation', proficiency: 95, highlight: 'Spring Physics, Layout Transitions, Gestures', iconName: 'Activity' },
-  { name: 'Git & GitHub', category: 'infra', proficiency: 94, highlight: 'Version Control, Branching, GitHub Actions, Open Source', iconName: 'Database' },
-]
-
 export const RAYHAN_GITHUB_FALLBACK: GithubProfileStats = {
   username: 'rayhan-creator',
   totalStars: 428,
@@ -265,46 +141,46 @@ export const RAYHAN_GITHUB_FALLBACK: GithubProfileStats = {
   contributionsThisYear: 1420,
   pinnedRepos: [
     {
-      name: 'forestia-eco-ui',
-      description: 'Nature-inspired clean e-commerce UI built with React & Tailwind CSS.',
+      name: 'figma-design-systems',
+      description: 'Comprehensive UI/UX components, design tokens, and user flow wireframes in Figma.',
       stars: 186,
       forks: 32,
-      primaryLanguage: { name: 'TypeScript', color: '#3178c6' },
-      url: 'https://github.com/rayhan-creator/forestia-eco-ui',
-      updatedAt: '2 days ago'
+      primaryLanguage: { name: 'Figma & UI/UX', color: '#f24e1e' },
+      url: 'https://github.com/rayhan-creator',
+      updatedAt: 'Recently updated'
     },
     {
-      name: 'lumina-glass-dashboard',
-      description: 'Ultra-modern glassmorphic interface and UI component kit with Three.js.',
+      name: 'flutter-mobile-app',
+      description: 'Mobile application development with Flutter, Dart, state management and clean UI.',
       stars: 142,
       forks: 28,
-      primaryLanguage: { name: 'JavaScript', color: '#f1e05a' },
-      url: 'https://github.com/rayhan-creator/lumina-glass-dashboard',
+      primaryLanguage: { name: 'Dart / Flutter', color: '#00b4ab' },
+      url: 'https://github.com/rayhan-creator',
       updatedAt: '1 week ago'
     },
     {
-      name: 'zenith-showcase',
-      description: 'Friction-based horizontal scroll portfolio template with Lenis & GSAP.',
+      name: 'spec-driven-kiro',
+      description: 'Implementation repository for Spec-Driven Development methodologies with Kiro.',
       stars: 64,
       forks: 14,
-      primaryLanguage: { name: 'React', color: '#61dafb' },
-      url: 'https://github.com/rayhan-creator/zenith-showcase',
+      primaryLanguage: { name: 'TypeScript', color: '#3178c6' },
+      url: 'https://github.com/rayhan-creator',
       updatedAt: '2 weeks ago'
     },
     {
-      name: 'rayhan-portfolio-v2',
-      description: 'Personal portfolio codebase powered by Interactive Glassmorphism and WebGL.',
+      name: 'rayhan-portfolio',
+      description: 'Personal interactive portfolio codebase powered by Glassmorphism and Three.js.',
       stars: 36,
       forks: 8,
-      primaryLanguage: { name: 'TypeScript', color: '#3178c6' },
+      primaryLanguage: { name: 'React', color: '#61dafb' },
       url: 'https://github.com/rayhan-creator',
       updatedAt: 'Yesterday'
     }
   ],
   topLanguages: [
-    { name: 'TypeScript & JavaScript', percentage: 58.4, color: '#3178c6' },
-    { name: 'HTML & CSS / Tailwind', percentage: 26.2, color: '#38bdf8' },
-    { name: 'React & Three.js', percentage: 15.4, color: '#61dafb' }
+    { name: 'Dart / Flutter', percentage: 45.2, color: '#00b4ab' },
+    { name: 'TypeScript & JavaScript', percentage: 35.4, color: '#3178c6' },
+    { name: 'HTML & CSS / Tailwind', percentage: 19.4, color: '#38bdf8' }
   ]
 }
 
@@ -313,18 +189,18 @@ export const RAYHAN_EXPERIENCE = [
     period: '2025 - Sekarang',
     role: 'Siswa Rekayasa Perangkat Lunak (RPL)',
     place: 'Rabbaanii Islamic School, Cikarang Timur',
-    description: 'Fokus mendalami UI/UX Design di Figma, Front-End Web Development (React/Tailwind), serta Mobile Development (Flutter & Dart). Meraih Bintang Prestasi (Ranking 1 selama 3 semester berturut-turut).'
+    description: 'Fokus mendalami UI/UX Design di Figma, User Flow, Mobile Development (Flutter & Dart), serta Front-End Web Development. Meraih Bintang Prestasi (Ranking 1 selama 3 semester berturut-turut).'
   },
   {
-    period: '2024 - 2025',
-    role: 'Front-End & UI/UX Freelance Explorer',
-    place: 'Self-Directed & Open Source Projects',
-    description: 'Mengikuti berbagai sertifikasi kompetensi di Dicoding (AWS Cloud, Spec-Driven Development) dan Udemy (Figma UI/UX). Mengerjakan puluhan antarmuka modern.'
+    period: '2024 - 2026',
+    role: 'Sertifikasi Kompetensi & Self-Development',
+    place: 'Dicoding Academy & Udemy',
+    description: 'Menyelesaikan sertifikasi Dicoding: "Belajar Dasar Cloud dan Gen AI di AWS" dan "Spec-Driven Development dengan Kiro", serta sertifikasi Udemy: "Figma Essential for UI/UX Design".'
   },
   {
     period: '2018 - 2024',
-    role: 'Organisasi & Prestasi Akademik/Olahraga',
+    role: 'Organisasi, Kepemimpinan & Prestasi Olahraga',
     place: 'OSIS, SAPALA, Taekwondo Indonesia',
-    description: 'Aktif dalam kepengurusan OSIS Seksi Ibadah, SAPALA (Santri Pecinta Alam), Juara I Kejuaraan Taekwondo Provinsi, dan menyelesaikan hafalan Al-Qur\'an hingga 24 Juz.'
+    description: 'Aktif sebagai anggota OSIS (Seksi Ibadah), anggota aktif SAPALA (Santri Pecinta Alam), Juara I Kejuaraan Taekwondo Tingkat Provinsi, dan menyelesaikan hafalan Al-Qur\'an hingga 24 Juz.'
   }
 ]

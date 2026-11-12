@@ -33,7 +33,7 @@ export function AboutMe() {
                 <img
                   src={RAYHAN_PROFILE.photoUrl}
                   alt={RAYHAN_PROFILE.fullName}
-                  className="w-full h-full object-cover object-top rounded-xl"
+                  className="w-full h-full object-cover object-center rounded-xl"
                 />
               </div>
               <div>

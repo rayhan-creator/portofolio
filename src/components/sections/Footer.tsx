@@ -41,11 +41,11 @@ export function Footer({ onBackToTop }: FooterProps) {
                 <Sparkles className="w-4 h-4 text-white" />
               </div>
               <span className="font-serif font-bold text-2xl text-white tracking-wider">
-                RAYHAN ADRIAN
+                MUHAMMAD RAYHAN ADRIAN
               </span>
             </div>
             <p className="font-sans text-xs text-slate-400 max-w-sm font-light">
-              Front-End Developer & UI Specialist. Memadukan estetika Glassmorphism dengan performa web modern.
+              Rekayasa Perangkat Lunak • UI/UX & Web Developer. Memadukan estetika Glassmorphism dengan performa web modern.
             </p>
           </div>
 
@@ -53,10 +53,10 @@ export function Footer({ onBackToTop }: FooterProps) {
           <div className="flex flex-wrap items-center gap-6 text-xs font-mono text-slate-400">
             <div className="flex items-center gap-2 px-3 py-1.5 rounded-full bg-white/5 border border-white/10">
               <Globe className="w-3.5 h-3.5 text-cyan-400 animate-spin" />
-              <span>JAKARTA (WIB): {timeString}</span>
+              <span>BEKASI (WIB): {timeString}</span>
             </div>
             <div className="hidden sm:block">
-              <span>LAT: 6.2088° S // LON: 106.8456° E</span>
+              <span>BEKASI SELATAN, JAWA BARAT</span>
             </div>
           </div>
 

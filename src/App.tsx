@@ -6,8 +6,6 @@ import { Navbar } from './components/sections/Navbar'
 import { Hero } from './components/sections/Hero'
 import { AboutMe } from './components/sections/AboutMe'
 import { CertificatesCarousel } from './components/sections/CertificatesCarousel'
-import { WorkGallery } from './components/sections/WorkGallery'
-import { TechStackBento } from './components/sections/TechStackBento'
 import { GithubStatsSection } from './components/sections/GithubStatsSection'
 import { Contact } from './components/sections/Contact'
 import { Footer } from './components/sections/Footer'
@@ -43,7 +41,6 @@ export default function App() {
       <main className="relative z-10 flex flex-col">
         {/* Hero Section with Shattering Title & User's Real Portrait */}
         <Hero
-          onExploreWork={() => handleNavigate('#work')}
           onOpenContact={() => handleNavigate('#contact')}
           onExploreCertificates={() => handleNavigate('#certificates')}
         />
@@ -54,16 +51,10 @@ export default function App() {
         {/* Certificates Carousel Slide Section */}
         <CertificatesCarousel />
 
-        {/* Friction-based Horizontal Scroll Work Gallery */}
-        <WorkGallery />
-
-        {/* Bento Box Tech Stack Matrix */}
-        <TechStackBento />
-
         {/* GitHub Real-time GraphQL Telemetry */}
         <GithubStatsSection />
 
-        {/* Minimalist Contact with Floating Labels */}
+        {/* Minimalist Contact with Large Easy-to-Click Repository Button */}
         <Contact />
       </main>
 
