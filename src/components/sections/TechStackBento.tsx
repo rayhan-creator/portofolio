@@ -15,7 +15,7 @@ import {
   Sliders,
   CheckCircle2,
 } from 'lucide-react'
-import { TECH_ITEMS } from '../../data/mockCms'
+import { RAYHAN_TECH_ITEMS } from '../../data/mockCms'
 import { GlassCard } from '../common/GlassCard'
 
 export function TechStackBento() {
@@ -24,8 +24,8 @@ export function TechStackBento() {
   const [physicsSlider, setPhysicsSlider] = useState(80)
 
   const filteredItems = activeCategory === 'all'
-    ? TECH_ITEMS
-    : TECH_ITEMS.filter((t) => t.category === activeCategory)
+    ? RAYHAN_TECH_ITEMS
+    : RAYHAN_TECH_ITEMS.filter((t) => t.category === activeCategory)
 
   const getIcon = (name: string) => {
     switch (name) {
@@ -44,7 +44,7 @@ export function TechStackBento() {
 
   return (
     <section id="tech-stack" className="relative py-28 px-4 sm:px-6 lg:px-8 max-w-7xl mx-auto">
-      {/* Background ambient iridescent aura */}
+      {/* Background ambient aura */}
       <div className="absolute top-1/3 left-1/4 w-[500px] h-[500px] bg-cyan-500/10 rounded-full blur-[140px] pointer-events-none" />
       <div className="absolute bottom-1/4 right-1/4 w-[500px] h-[500px] bg-violet-600/10 rounded-full blur-[160px] pointer-events-none" />
 
@@ -53,20 +53,21 @@ export function TechStackBento() {
         <div>
           <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-violet-500/10 border border-violet-400/20 text-violet-300 text-xs font-sans uppercase tracking-widest font-medium mb-3">
             <Zap className="w-3.5 h-3.5 text-violet-400" />
-            Engineering Arsenal
+            Keahlian & Tooling
           </div>
           <h2 className="font-serif font-bold text-fluid-h2 text-white">
-            The Bento Matrix <span className="font-serif italic font-normal text-iridescent">& Capabilities</span>
+            Bento Matrix <span className="font-serif italic font-normal text-iridescent">& Kapabilitas Teknis</span>
           </h2>
         </div>
 
         {/* Filter Badges */}
         <div className="flex flex-wrap gap-2">
           {[
-            { id: 'all', label: 'Complete Matrix' },
-            { id: 'graphics3d', label: '3D & Shaders' },
-            { id: 'animation', label: 'Kinetic & Smooth' },
+            { id: 'all', label: 'Semua Keahlian' },
             { id: 'core', label: 'Core & Architecture' },
+            { id: 'animation', label: 'Animasi & Fisika' },
+            { id: 'graphics3d', label: '3D WebGL' },
+            { id: 'tools', label: 'UI/UX & Desain' },
           ].map((cat) => (
             <button
               key={cat.id}
@@ -84,10 +85,10 @@ export function TechStackBento() {
         </div>
       </div>
 
-      {/* Fluid Bento Grid Layout breaking standard container boundaries */}
+      {/* Fluid Bento Grid Layout */}
       <div className="grid grid-cols-1 md:grid-cols-3 lg:grid-cols-4 gap-6">
 
-        {/* BENTO CARD 1: 3D Shader Kernel & Dispersion (Spans 2 cols) */}
+        {/* BENTO CARD 1: 3D Spatial & WebGL Shaders (Spans 2 cols) */}
         <GlassCard
           glowColor="cyan"
           irregularShape="organic"
@@ -101,20 +102,20 @@ export function TechStackBento() {
                 </div>
                 <div>
                   <h3 className="font-serif font-bold text-xl text-white">
-                    Spatial WebGL & GLSL Shaders
+                    3D Spatial & Glass Shaders
                   </h3>
                   <span className="text-xs font-sans text-slate-400">
-                    Real-time transmission & chromatic dispersion
+                    Three.js & React Three Fiber (R3F)
                   </span>
                 </div>
               </div>
               <span className="px-2.5 py-1 rounded-full text-[10px] font-mono bg-cyan-950/60 text-cyan-300 border border-cyan-800/40">
-                120 FPS LOCK
+                120 FPS
               </span>
             </div>
 
             <p className="font-sans text-sm text-slate-300 leading-relaxed font-light mb-6">
-              Bespoke vertex and fragment shaders written in raw GLSL and compiled within Three.js / React Three Fiber. Simulating multi-bounce internal reflection, thin-film iridescence, and refractive caustic light fields.
+              Membangun latar belakang interaktif dan elemen 3D bereaksi terhadap gerakan kursor, transmisi kaca fisik, dan pembiasan cahaya dinamis yang memperkaya estetika portofolio.
             </p>
 
             {/* Interactive Dispersion Test Rig */}
@@ -122,7 +123,7 @@ export function TechStackBento() {
               <div className="flex justify-between items-center text-xs font-sans text-slate-300 mb-2">
                 <span className="flex items-center gap-1.5">
                   <Sliders className="w-3.5 h-3.5 text-cyan-400" />
-                  Real-time IOR Refraction Simulation
+                  Simulasi Refraksi Kaca Real-time
                 </span>
                 <span className="font-mono text-cyan-300">{(dispersionSlider / 50).toFixed(2)}x IOR</span>
               </div>
@@ -135,11 +136,10 @@ export function TechStackBento() {
                 className="w-full accent-cyan-400 h-1.5 bg-slate-800 rounded-lg cursor-pointer"
               />
 
-              {/* Visual simulated chromatic aberration bar */}
               <div
                 className="mt-3 h-3 rounded-full overflow-hidden transition-all duration-150"
                 style={{
-                  background: `linear-gradient(90deg, #06b6d4 0%, #8b5cf6 ${dispersionSlider}%, #f43f5e 100%)`,
+                  background: `linear-gradient(90deg, #06b6d4 0%, #8b5cf6 ${dispersionSlider}%, #10b981 100%)`,
                   filter: `blur(${dispersionSlider > 75 ? 1 : 0}px)`,
                 }}
               />
@@ -147,7 +147,7 @@ export function TechStackBento() {
           </div>
 
           <div className="flex flex-wrap gap-2 pt-2 border-t border-white/5">
-            {['Raymarching', 'Transmission Materials', 'Post-processing Bloom', 'Normal Mapping'].map((feat) => (
+            {['Physical Materials', 'Interactive Geometry', 'Camera Controls', 'Stardust Particles'].map((feat) => (
               <span key={feat} className="text-[11px] font-sans px-2.5 py-1 rounded-md bg-white/5 text-slate-300">
                 {feat}
               </span>
@@ -155,7 +155,7 @@ export function TechStackBento() {
           </div>
         </GlassCard>
 
-        {/* BENTO CARD 2: Kinetic Motion Physics (Spans 1 col on md, 2 on lg) */}
+        {/* BENTO CARD 2: Kinetic Motion Physics (Spans 2 cols on lg) */}
         <GlassCard
           glowColor="violet"
           irregularShape="cut-corner"
@@ -169,23 +169,23 @@ export function TechStackBento() {
                 </div>
                 <div>
                   <h3 className="font-serif font-bold text-xl text-white">
-                    Friction & Kinetic Timelines
+                    Animasi Halus & Fisika Kinetik
                   </h3>
                   <span className="text-xs font-sans text-slate-400">
-                    Lenis Virtual Scroll + GSAP ScrollTrigger
+                    Lenis Smooth Scroll + GSAP ScrollTrigger
                   </span>
                 </div>
               </div>
             </div>
 
             <p className="font-sans text-sm text-slate-300 leading-relaxed font-light mb-6">
-              Orchestrating hardware-synchronized smooth virtual scrolling with zero input lag. Layout transitions powered by Framer Motion's spring damping algorithm.
+              Pengalaman scrolling virtual yang terintegrasi tanpa patah-patah dengan akselerasi hardware. Dikombinasikan dengan pegas Framer Motion untuk transisi interaktif.
             </p>
 
             {/* Kinetic Ball Interactive Playground */}
             <div className="p-4 rounded-xl bg-slate-950/60 border border-white/10 mb-4 flex flex-col gap-3">
               <div className="flex justify-between items-center text-xs font-sans text-slate-300">
-                <span>Damping Stiffness Simulator</span>
+                <span>Tes Damping Inersia Pegas</span>
                 <span className="font-mono text-violet-300">{physicsSlider} N/m</span>
               </div>
               <input
@@ -213,7 +213,7 @@ export function TechStackBento() {
           </div>
 
           <div className="flex flex-wrap gap-2 pt-2 border-t border-white/5">
-            {['ScrollTrigger Sync', 'Lenis Momentum', 'Framer Spring Layout', 'Custom Cursors'].map((feat) => (
+            {['ScrollTrigger Timeline', 'Framer Spring', 'Hardware Acceleration', 'Custom Cursor'].map((feat) => (
               <span key={feat} className="text-[11px] font-sans px-2.5 py-1 rounded-md bg-white/5 text-slate-300">
                 {feat}
               </span>
@@ -221,7 +221,7 @@ export function TechStackBento() {
           </div>
         </GlassCard>
 
-        {/* BENTO CARD 3: Liquid Clamp & Zero Breakpoints (Spans 1 col) */}
+        {/* BENTO CARD 3: Liquid Clamp Engine */}
         <GlassCard
           glowColor="emerald"
           irregularShape="pill-skew"
@@ -232,10 +232,10 @@ export function TechStackBento() {
               <Palette className="w-5 h-5" />
             </div>
             <h3 className="font-serif font-bold text-lg text-white mb-1">
-              Liquid Clamp Engine
+              Desain Fluid & Responsif
             </h3>
             <p className="font-sans text-xs text-slate-300 leading-relaxed font-light mb-4">
-              Mathematical fluid typography that scales uninterrupted between 320px and 4K displays.
+              Tipografi dan komponen otomatis menyesuaikan ukuran layar dari smartphone hingga monitor ultra-wide tanpa jeda breakpoint.
             </p>
 
             <div className="p-3 rounded-xl bg-slate-950/60 border border-white/10 font-mono text-[11px] text-emerald-300 space-y-1">
@@ -247,11 +247,11 @@ export function TechStackBento() {
 
           <div className="pt-4 mt-4 border-t border-white/5 text-[11px] font-sans text-slate-400 flex items-center gap-1.5">
             <CheckCircle2 className="w-3.5 h-3.5 text-emerald-400" />
-            100% Fluid Container Queries
+            100% Fluid & Mobile Optimized
           </div>
         </GlassCard>
 
-        {/* BENTO CARDS 4 to N: Dynamic Filtered Skills Matrix */}
+        {/* BENTO CARDS: Dynamic Filtered Skills Matrix */}
         {filteredItems.map((tech) => (
           <GlassCard
             key={tech.name}
@@ -277,11 +277,10 @@ export function TechStackBento() {
               </p>
             </div>
 
-            {/* Proficiency progress bar */}
             <div className="mt-4 pt-3 border-t border-white/5">
               <div className="w-full bg-slate-800 h-1 rounded-full overflow-hidden">
                 <div
-                  className="h-full bg-gradient-to-r from-cyan-400 to-violet-500 rounded-full"
+                  className="h-full bg-gradient-to-r from-cyan-400 to-emerald-400 rounded-full"
                   style={{ width: `${tech.proficiency}%` }}
                 />
               </div>

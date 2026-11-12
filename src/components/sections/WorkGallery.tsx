@@ -4,7 +4,7 @@ import gsap from 'gsap'
 import { ScrollTrigger } from 'gsap/ScrollTrigger'
 import { ExternalLink, Github, ChevronRight, ChevronLeft, Sparkles, X, ArrowUpRight } from 'lucide-react'
 import { Project } from '../../types'
-import { CMS_PROJECTS } from '../../data/mockCms'
+import { RAYHAN_PROJECTS } from '../../data/mockCms'
 import { GlassCard } from '../common/GlassCard'
 
 gsap.registerPlugin(ScrollTrigger)
@@ -20,7 +20,6 @@ export function WorkGallery() {
     const track = trackRef.current
     if (!section || !track) return
 
-    // Calculate total horizontal scroll width
     const getScrollAmount = () => -(track.scrollWidth - window.innerWidth + 120)
 
     const tween = gsap.to(track, {
@@ -31,7 +30,7 @@ export function WorkGallery() {
         start: 'top top',
         end: () => `+=${track.scrollWidth - window.innerWidth + 400}`,
         pin: true,
-        scrub: 1.2, // Friction inertia smoothing
+        scrub: 1.2,
         invalidateOnRefresh: true,
       },
     })
@@ -52,21 +51,21 @@ export function WorkGallery() {
     >
       {/* Background Ambience */}
       <div className="absolute top-1/2 left-10 w-96 h-96 bg-cyan-600/10 rounded-full blur-[160px] pointer-events-none" />
-      <div className="absolute top-1/4 right-20 w-80 h-80 bg-violet-600/10 rounded-full blur-[140px] pointer-events-none" />
+      <div className="absolute top-1/4 right-20 w-80 h-80 bg-emerald-600/10 rounded-full blur-[140px] pointer-events-none" />
 
       {/* Header Info */}
       <div className="max-w-7xl mx-auto px-6 sm:px-12 w-full mb-8 flex flex-col md:flex-row md:items-end justify-between gap-4">
         <div>
           <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-cyan-500/10 border border-cyan-400/20 text-cyan-300 text-xs font-sans uppercase tracking-widest font-medium mb-3">
             <Sparkles className="w-3 h-3" />
-            Curated Works // 2025 - 2027
+            Galeri Portofolio Unggulan
           </div>
           <h2 className="font-serif font-bold text-fluid-h2 text-white">
-            Kinetic Architecture <span className="font-serif italic font-normal text-iridescent">& Experiences</span>
+            Karya Terpilih <span className="font-serif italic font-normal text-iridescent">& Eksperimen</span>
           </h2>
         </div>
         <p className="max-w-md font-sans text-xs sm:text-sm text-slate-400 font-light">
-          Scroll vertically or drag to glide horizontally through spatial interfaces engineered with sub-millisecond precision.
+          Scroll vertikal untuk meluncur secara horizontal menyusuri projek-projek web interaktif yang telah dibangun.
         </p>
       </div>
 
@@ -76,7 +75,7 @@ export function WorkGallery() {
           ref={trackRef}
           className="flex items-center gap-8 pl-6 sm:pl-16 pr-32 select-none"
         >
-          {CMS_PROJECTS.map((project, idx) => (
+          {RAYHAN_PROJECTS.map((project, idx) => (
             <motion.div
               key={project.id}
               className="w-[85vw] sm:w-[480px] lg:w-[580px] shrink-0"
@@ -85,14 +84,14 @@ export function WorkGallery() {
             >
               <GlassCard
                 irregularShape={idx % 2 === 0 ? 'cut-corner' : 'organic'}
-                glowColor={idx === 0 ? 'cyan' : idx === 1 ? 'violet' : idx === 2 ? 'emerald' : 'rose'}
+                glowColor={idx === 0 ? 'emerald' : idx === 1 ? 'cyan' : idx === 2 ? 'violet' : 'rose'}
                 className="p-6 sm:p-8 flex flex-col justify-between h-[520px] sm:h-[580px] cursor-pointer group"
                 onClick={() => {
                   setActiveProject(project)
                   setGalleryIndex(0)
                 }}
                 data-cursor="pointer"
-                data-cursor-text="INSPECT"
+                data-cursor-text="DETAIL"
               >
                 {/* Project Image Shell */}
                 <div className="relative w-full h-52 sm:h-64 rounded-xl overflow-hidden mb-6 border border-white/10 group-hover:border-cyan-400/40 transition-colors">
@@ -187,7 +186,7 @@ export function WorkGallery() {
               <button
                 onClick={() => setActiveProject(null)}
                 className="absolute top-6 right-6 w-10 h-10 rounded-full bg-white/10 hover:bg-white/20 flex items-center justify-center text-slate-200 transition-colors z-20"
-                aria-label="Close Project Modal"
+                aria-label="Tutup Modal"
               >
                 <X className="w-5 h-5" />
               </button>
@@ -201,7 +200,7 @@ export function WorkGallery() {
                       {activeProject.category}
                     </span>
                     <span className="text-xs font-sans text-slate-400">
-                      Client: {activeProject.client} • {activeProject.year}
+                      Tahun: {activeProject.year} • Klien: {activeProject.client}
                     </span>
                   </div>
                   <h2 className="font-serif font-black text-3xl sm:text-5xl text-white">
@@ -234,12 +233,12 @@ export function WorkGallery() {
                 {/* Description & Metrics Grid */}
                 <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
                   <div className="md:col-span-2 flex flex-col gap-4">
-                    <h4 className="font-serif font-bold text-xl text-white">Architectural Summary</h4>
+                    <h4 className="font-serif font-bold text-xl text-white">Penjelasan Projek</h4>
                     <p className="font-sans text-slate-300 leading-relaxed font-light text-sm sm:text-base">
                       {activeProject.description}
                     </p>
 
-                    <h4 className="font-serif font-bold text-xl text-white mt-4">Key Milestones</h4>
+                    <h4 className="font-serif font-bold text-xl text-white mt-4">Pencapaian & Fitur Kunci</h4>
                     <ul className="space-y-2">
                       {activeProject.achievements.map((ach, aIdx) => (
                         <li key={aIdx} className="flex items-start gap-2.5 text-sm text-slate-300 font-sans">
@@ -253,7 +252,7 @@ export function WorkGallery() {
                   <div className="flex flex-col gap-6 p-6 rounded-2xl bg-white/[0.03] border border-white/10">
                     <div>
                       <span className="text-[11px] font-sans uppercase tracking-widest text-slate-400">
-                        Performance Metrics
+                        Metrik Kinerja
                       </span>
                       <div className="mt-3 space-y-3">
                         {activeProject.metrics.map((m, mIdx) => (
@@ -267,7 +266,7 @@ export function WorkGallery() {
 
                     <div>
                       <span className="text-[11px] font-sans uppercase tracking-widest text-slate-400">
-                        Technologies Deployed
+                        Teknologi Digunakan
                       </span>
                       <div className="mt-2 flex flex-wrap gap-1.5">
                         {activeProject.tags.map((t) => (
@@ -291,7 +290,7 @@ export function WorkGallery() {
                           className="flex items-center justify-center gap-2 py-3 rounded-xl bg-gradient-to-r from-cyan-400 to-teal-400 text-slate-950 font-sans font-semibold text-xs tracking-wider uppercase hover:shadow-[0_0_20px_rgba(6,182,212,0.4)] transition-all"
                         >
                           <ExternalLink className="w-4 h-4" />
-                          Launch Live Prototype
+                          Buka Live Preview
                         </a>
                       )}
                       {activeProject.githubUrl && (
@@ -302,7 +301,7 @@ export function WorkGallery() {
                           className="flex items-center justify-center gap-2 py-3 rounded-xl bg-white/5 border border-white/10 hover:border-white/25 text-slate-200 font-sans font-medium text-xs tracking-wider uppercase transition-all"
                         >
                           <Github className="w-4 h-4" />
-                          Inspect Source Code
+                          Lihat Source Code
                         </a>
                       )}
                     </div>
