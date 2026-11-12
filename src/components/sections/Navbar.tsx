@@ -73,7 +73,7 @@ export function Navbar({ onNavigate, totalStars = 428 }: NavbarProps) {
             ))}
           </nav>
 
-          {/* Right Action Island */}
+{/* Right Action Island */}
           <div className="flex items-center gap-2.5 sm:gap-3">
             {/* Direct Resume / CV PDF Link Button */}
             <a
@@ -81,7 +81,8 @@ export function Navbar({ onNavigate, totalStars = 428 }: NavbarProps) {
               target="_blank"
               rel="noopener noreferrer"
               data-cursor="pointer"
-              className="flex items-center gap-1.5 px-3.5 py-1.5 rounded-full bg-cyan-500/15 hover:bg-cyan-500/25 border border-cyan-400/30 text-xs font-sans font-medium text-cyan-300 hover:text-white transition-all shadow-[0_0_15px_rgba(6,182,212,0.25)]"
+              // GW TAMBAHIN hidden md:flex DI SINI JIR
+              className="hidden md:flex items-center gap-1.5 px-3.5 py-1.5 rounded-full bg-cyan-500/15 hover:bg-cyan-500/25 border border-cyan-400/30 text-xs font-sans font-medium text-cyan-300 hover:text-white transition-all shadow-[0_0_15px_rgba(6,182,212,0.25)]"
             >
               <FileText className="w-3.5 h-3.5 text-cyan-400" />
               <span>Resume (PDF)</span>
@@ -105,7 +106,8 @@ export function Navbar({ onNavigate, totalStars = 428 }: NavbarProps) {
             <button
               onClick={() => handleNavClick('#contact')}
               data-cursor="pointer"
-              className="relative px-4 py-2 rounded-full overflow-hidden text-xs font-sans font-medium text-slate-950 bg-gradient-to-r from-cyan-400 via-teal-300 to-cyan-200 shadow-[0_0_20px_rgba(6,182,212,0.4)] hover:shadow-[0_0_30px_rgba(6,182,212,0.7)] transition-all duration-300 hover:scale-[1.03]"
+              // GW TAMBAHIN hidden md:block DI SINI JUGA
+              className="hidden md:block relative px-4 py-2 rounded-full overflow-hidden text-xs font-sans font-medium text-slate-950 bg-gradient-to-r from-cyan-400 via-teal-300 to-cyan-200 shadow-[0_0_20px_rgba(6,182,212,0.4)] hover:shadow-[0_0_30px_rgba(6,182,212,0.7)] transition-all duration-300 hover:scale-[1.03]"
             >
               <span className="relative z-10 flex items-center gap-1.5 font-semibold">
                 Hubungi

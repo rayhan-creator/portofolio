@@ -96,11 +96,6 @@ export function Hero({ onOpenContact, onExploreCertificates }: HeroProps) {
                   className="w-full h-full object-cover object-center opacity-95 scale-105 transition-all duration-700"
                 />
                 <div className="absolute inset-0 bg-gradient-to-b from-transparent via-cyan-400/10 to-slate-950/70 pointer-events-none" />
-                <div className="absolute bottom-4 inset-x-4 py-1.5 px-3 rounded-full bg-slate-900/90 backdrop-blur-md border border-white/20 text-center">
-                  <span className="text-[11px] font-sans font-semibold text-cyan-200 tracking-wider">
-                    {RAYHAN_PROFILE.fullName.toUpperCase()}
-                  </span>
-                </div>
               </div>
             </div>
           </motion.div>
