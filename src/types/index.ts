@@ -19,6 +19,20 @@ export interface Project {
   achievements: string[]
 }
 
+export interface Certificate {
+  id: string
+  title: string
+  issuer: string
+  date: string
+  credentialId?: string
+  verifyUrl?: string
+  pdfPage: number
+  pdfUrl: string
+  category: string
+  description: string
+  accentColor: string
+}
+
 export interface GithubRepoStat {
   name: string
   description: string
@@ -49,16 +63,7 @@ export interface GithubProfileStats {
 export interface TechItem {
   name: string
   category: 'core' | 'graphics3d' | 'animation' | 'infra' | 'tools'
-  proficiency: number // 0-100
+  proficiency: number
   highlight: string
   iconName: string
-}
-
-export interface Testimonial {
-  id: string
-  quote: string
-  author: string
-  role: string
-  company: string
-  avatar: string
 }

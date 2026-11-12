@@ -1,5 +1,5 @@
 import { motion } from 'framer-motion'
-import { User, Sparkles, Compass, Heart, Code2, BookOpen, Coffee, CheckCircle2 } from 'lucide-react'
+import { User, Sparkles, Compass, Heart, Code2, BookOpen, Coffee, CheckCircle2, FileText, ArrowUpRight } from 'lucide-react'
 import { RAYHAN_PROFILE, RAYHAN_EXPERIENCE } from '../../data/mockCms'
 import { GlassCard } from '../common/GlassCard'
 
@@ -25,23 +25,23 @@ export function AboutMe() {
       </div>
 
       <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-start">
-        {/* Left Column: Portrait & Personal Philosophy (Spans 5 cols) */}
+        {/* Left Column: Real Photo & Personal Philosophy (Spans 5 cols) */}
         <div className="lg:col-span-5 flex flex-col gap-6">
           <GlassCard irregularShape="organic" glowColor="emerald" className="p-8">
             <div className="flex items-center gap-4 mb-6">
-              <div className="w-16 h-16 rounded-2xl overflow-hidden border border-white/20 p-1 bg-gradient-to-tr from-cyan-400 to-emerald-400">
+              <div className="w-20 h-20 rounded-2xl overflow-hidden border-2 border-cyan-400/50 p-0.5 bg-gradient-to-tr from-cyan-400 to-emerald-400 shadow-[0_0_20px_rgba(6,182,212,0.4)]">
                 <img
-                  src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?auto=format&fit=crop&w=400&q=80"
-                  alt="Rayhan Adrian"
-                  className="w-full h-full object-cover rounded-xl"
+                  src={RAYHAN_PROFILE.photoUrl}
+                  alt={RAYHAN_PROFILE.fullName}
+                  className="w-full h-full object-cover object-top rounded-xl"
                 />
               </div>
               <div>
                 <h3 className="font-serif font-bold text-xl text-white">
-                  {RAYHAN_PROFILE.name}
+                  {RAYHAN_PROFILE.fullName}
                 </h3>
-                <span className="text-xs font-sans text-cyan-300">
-                  {RAYHAN_PROFILE.nickname} • Front-End Developer
+                <span className="text-xs font-sans text-cyan-300 block">
+                  {RAYHAN_PROFILE.school}
                 </span>
                 <div className="text-[11px] text-slate-400 font-sans mt-0.5">
                   📍 {RAYHAN_PROFILE.location}
@@ -53,7 +53,7 @@ export function AboutMe() {
               {RAYHAN_PROFILE.bioLong}
             </p>
 
-            <div className="p-4 rounded-xl bg-emerald-950/30 border border-emerald-500/20">
+            <div className="p-4 rounded-xl bg-emerald-950/30 border border-emerald-500/20 mb-6">
               <div className="flex items-center gap-2 text-xs font-sans font-medium text-emerald-300 mb-1">
                 <Heart className="w-3.5 h-3.5 text-emerald-400" />
                 Filosofi Desain & Kode
@@ -62,25 +62,38 @@ export function AboutMe() {
                 "{RAYHAN_PROFILE.philosophy}"
               </p>
             </div>
+
+            {/* Direct Link to CV PDF */}
+            <a
+              href={RAYHAN_PROFILE.cvPdfUrl}
+              target="_blank"
+              rel="noopener noreferrer"
+              data-cursor="pointer"
+              className="flex items-center justify-center gap-2 py-3 px-4 rounded-xl bg-gradient-to-r from-emerald-500 to-cyan-500 text-slate-950 font-sans font-semibold text-xs tracking-wider uppercase hover:shadow-[0_0_25px_rgba(16,185,129,0.4)] transition-all"
+            >
+              <FileText className="w-4 h-4" />
+              <span>Buka Dokumen CV Lengkap (PDF)</span>
+              <ArrowUpRight className="w-4 h-4" />
+            </a>
           </GlassCard>
 
           {/* Quick Metrics Bar */}
           <div className="grid grid-cols-2 gap-4">
             <GlassCard irregularShape="standard" glowColor="cyan" className="p-5 text-center">
               <span className="font-serif font-bold text-3xl text-cyan-300 block">
-                25+
+                24 Juz
               </span>
               <span className="text-xs font-sans text-slate-400">
-                Proyek & Eksperimen Web
+                Hafalan Al-Qur'an
               </span>
             </GlassCard>
 
             <GlassCard irregularShape="standard" glowColor="violet" className="p-5 text-center">
               <span className="font-serif font-bold text-3xl text-violet-300 block">
-                100%
+                Rank 1
               </span>
               <span className="text-xs font-sans text-slate-400">
-                Komitmen Clean Code
+                Bintang Prestasi (3 Smt)
               </span>
             </GlassCard>
           </div>
@@ -96,10 +109,10 @@ export function AboutMe() {
                 </div>
                 <div>
                   <h3 className="font-serif font-bold text-2xl text-white">
-                    Perjalanan & Milestone
+                    Pendidikan, Organisasi & Prestasi
                   </h3>
                   <span className="text-xs font-sans text-slate-400">
-                    Proses belajar konsisten menuju engineer berkelas
+                    Rekam jejak dedikasi akademik, teknologi, dan karakter
                   </span>
                 </div>
               </div>
@@ -140,19 +153,19 @@ export function AboutMe() {
             <div className="mt-8 pt-6 border-t border-white/10 grid grid-cols-1 sm:grid-cols-2 gap-3 text-xs font-sans text-slate-300">
               <div className="flex items-center gap-2">
                 <CheckCircle2 className="w-4 h-4 text-emerald-400 shrink-0" />
-                <span>Responsive & Mobile-First Mindset</span>
+                <span>UI/UX Design & User Flow (Figma)</span>
               </div>
               <div className="flex items-center gap-2">
                 <CheckCircle2 className="w-4 h-4 text-emerald-400 shrink-0" />
-                <span>Modern React Component Lifecycle</span>
+                <span>Front-End Web (React, Tailwind, Three.js)</span>
               </div>
               <div className="flex items-center gap-2">
                 <CheckCircle2 className="w-4 h-4 text-emerald-400 shrink-0" />
-                <span>Clean, Scalable CSS with Tailwind</span>
+                <span>Mobile Development (Flutter & Dart)</span>
               </div>
               <div className="flex items-center gap-2">
                 <CheckCircle2 className="w-4 h-4 text-emerald-400 shrink-0" />
-                <span>Smooth Virtual Physics (Lenis & GSAP)</span>
+                <span>Kerja Tim & Kepemimpinan (OSIS & SAPALA)</span>
               </div>
             </div>
           </GlassCard>

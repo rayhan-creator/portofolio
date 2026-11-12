@@ -1,15 +1,14 @@
 import { useState, useEffect } from 'react'
 import { motion, AnimatePresence } from 'framer-motion'
-import { Menu, X, Github, ArrowUpRight, Sparkles, FileText } from 'lucide-react'
+import { Menu, X, Github, ArrowUpRight, Sparkles, FileText, Award } from 'lucide-react'
 import { RAYHAN_PROFILE } from '../../data/mockCms'
 
 interface NavbarProps {
   onNavigate: (sectionId: string) => void
   totalStars?: number
-  onOpenCvModal?: () => void
 }
 
-export function Navbar({ onNavigate, totalStars = 428, onOpenCvModal }: NavbarProps) {
+export function Navbar({ onNavigate, totalStars = 428 }: NavbarProps) {
   const [scrolled, setScrolled] = useState(false)
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false)
 
@@ -22,10 +21,11 @@ export function Navbar({ onNavigate, totalStars = 428, onOpenCvModal }: NavbarPr
   }, [])
 
   const navItems = [
-    { label: 'Tentang Saya', target: '#about' },
+    { label: 'Tentang', target: '#about' },
+    { label: 'Sertifikat', target: '#certificates' },
     { label: 'Portofolio', target: '#work' },
     { label: 'Keahlian', target: '#tech-stack' },
-    { label: 'GitHub Live', target: '#github-stats' },
+    { label: 'GitHub', target: '#github-stats' },
     { label: 'Kontak', target: '#contact' },
   ]
 
@@ -34,31 +34,39 @@ export function Navbar({ onNavigate, totalStars = 428, onOpenCvModal }: NavbarPr
     onNavigate(target)
   }
 
+  const handleOpenPdf = () => {
+    window.open(RAYHAN_PROFILE.cvPdfUrl, '_blank')
+  }
+
   return (
     <>
       <header className="fixed top-0 inset-x-0 z-50 px-4 sm:px-6 lg:px-8 py-4 transition-all duration-300">
         <div className="max-w-7xl mx-auto flex items-center justify-between">
-          {/* Brand Logo */}
+          {/* Brand Logo with User Avatar */}
           <button
             onClick={() => handleNavClick('#hero')}
             data-cursor="pointer"
-            className="group flex items-center gap-3 px-4 py-2 rounded-full bg-slate-900/60 backdrop-blur-xl border border-white/10 hover:border-cyan-400/40 transition-all duration-300 shadow-glass"
+            className="group flex items-center gap-3 px-3.5 py-1.5 rounded-full bg-slate-900/60 backdrop-blur-xl border border-white/10 hover:border-cyan-400/40 transition-all duration-300 shadow-glass"
           >
-            <div className="relative flex items-center justify-center w-7 h-7 rounded-full bg-gradient-to-tr from-cyan-500 to-emerald-500 shadow-[0_0_12px_rgba(6,182,212,0.6)]">
-              <Sparkles className="w-3.5 h-3.5 text-white" />
+            <div className="relative w-8 h-8 rounded-full overflow-hidden border border-white/20 p-0.5 bg-gradient-to-tr from-cyan-400 to-emerald-400">
+              <img
+                src={RAYHAN_PROFILE.photoUrl}
+                alt={RAYHAN_PROFILE.name}
+                className="w-full h-full object-cover object-center rounded-full"
+              />
             </div>
             <div className="flex flex-col text-left">
               <span className="font-serif font-bold text-sm tracking-wider text-white group-hover:text-cyan-300 transition-colors">
                 RAYHAN ADRIAN
               </span>
               <span className="text-[9px] uppercase tracking-widest text-slate-400 font-sans -mt-0.5">
-                Front-End Developer
+                Front-End & UI/UX
               </span>
             </div>
           </button>
 
           {/* Desktop Nav Links */}
-          <nav className="hidden md:flex items-center gap-1.5 px-3 py-1.5 rounded-full bg-slate-900/60 backdrop-blur-2xl border border-white/10 shadow-glass">
+          <nav className="hidden md:flex items-center gap-1 px-3 py-1.5 rounded-full bg-slate-900/60 backdrop-blur-2xl border border-white/10 shadow-glass">
             {navItems.map((item) => (
               <button
                 key={item.target}
@@ -73,14 +81,18 @@ export function Navbar({ onNavigate, totalStars = 428, onOpenCvModal }: NavbarPr
 
           {/* Right Action Island */}
           <div className="flex items-center gap-2.5 sm:gap-3">
-            {/* Status Pill */}
-            <div className="hidden lg:flex items-center gap-2 px-3 py-1.5 rounded-full bg-slate-900/50 backdrop-blur-xl border border-emerald-500/20 text-[11px] font-sans text-slate-300 shadow-glass">
-              <span className="relative flex h-2 w-2">
-                <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-emerald-400 opacity-75" />
-                <span className="relative inline-flex rounded-full h-2 w-2 bg-emerald-500" />
-              </span>
-              <span className="text-slate-300 font-medium">Open for Projects & Internship</span>
-            </div>
+            {/* Direct Resume / CV PDF Link Button */}
+            <a
+              href={RAYHAN_PROFILE.cvPdfUrl}
+              target="_blank"
+              rel="noopener noreferrer"
+              data-cursor="pointer"
+              className="flex items-center gap-1.5 px-3.5 py-1.5 rounded-full bg-cyan-500/15 hover:bg-cyan-500/25 border border-cyan-400/30 text-xs font-sans font-medium text-cyan-300 hover:text-white transition-all shadow-[0_0_15px_rgba(6,182,212,0.25)]"
+            >
+              <FileText className="w-3.5 h-3.5 text-cyan-400" />
+              <span>Resume (PDF)</span>
+              <ArrowUpRight className="w-3 h-3 text-cyan-400" />
+            </a>
 
             {/* GitHub Pill */}
             <a
@@ -88,24 +100,12 @@ export function Navbar({ onNavigate, totalStars = 428, onOpenCvModal }: NavbarPr
               target="_blank"
               rel="noopener noreferrer"
               data-cursor="pointer"
-              className="hidden sm:flex items-center gap-2 px-3 py-1.5 rounded-full bg-slate-900/60 backdrop-blur-xl border border-white/10 hover:border-cyan-400/40 text-xs font-sans text-slate-200 hover:text-cyan-200 transition-all duration-300 shadow-glass group"
+              className="hidden sm:flex items-center gap-1.5 px-3 py-1.5 rounded-full bg-slate-900/60 backdrop-blur-xl border border-white/10 hover:border-cyan-400/40 text-xs font-sans text-slate-200 hover:text-cyan-200 transition-all duration-300 shadow-glass group"
             >
               <Github className="w-3.5 h-3.5 text-slate-400 group-hover:text-cyan-300 transition-colors" />
               <span className="font-semibold">{totalStars}</span>
               <span className="text-[10px] text-slate-400">★</span>
             </a>
-
-            {/* Resume Button */}
-            {onOpenCvModal && (
-              <button
-                onClick={onOpenCvModal}
-                data-cursor="pointer"
-                className="hidden sm:flex items-center gap-1.5 px-3.5 py-1.5 rounded-full bg-white/5 hover:bg-white/10 border border-white/10 text-xs font-sans text-slate-200 transition-all"
-              >
-                <FileText className="w-3.5 h-3.5 text-cyan-400" />
-                <span>Resume / CV</span>
-              </button>
-            )}
 
             {/* CTA Button */}
             <button
@@ -153,21 +153,20 @@ export function Navbar({ onNavigate, totalStars = 428, onOpenCvModal }: NavbarPr
                   <ArrowUpRight className="w-4 h-4 text-cyan-400" />
                 </button>
               ))}
-              {onOpenCvModal && (
-                <button
-                  onClick={() => {
-                    setMobileMenuOpen(false)
-                    onOpenCvModal()
-                  }}
-                  className="flex items-center justify-between p-3 rounded-xl text-left text-sm font-sans font-medium text-cyan-300 bg-cyan-950/40 border border-cyan-800/40"
-                >
-                  <span className="flex items-center gap-2">
-                    <FileText className="w-4 h-4" />
-                    Unduh CV / Resume
-                  </span>
-                  <ArrowUpRight className="w-4 h-4" />
-                </button>
-              )}
+
+              <a
+                href={RAYHAN_PROFILE.cvPdfUrl}
+                target="_blank"
+                rel="noopener noreferrer"
+                onClick={() => setMobileMenuOpen(false)}
+                className="flex items-center justify-between p-3 rounded-xl text-left text-sm font-sans font-medium text-cyan-300 bg-cyan-950/40 border border-cyan-800/40"
+              >
+                <span className="flex items-center gap-2">
+                  <FileText className="w-4 h-4" />
+                  Buka Dokumen Resume (PDF)
+                </span>
+                <ArrowUpRight className="w-4 h-4" />
+              </a>
             </div>
 
             <div className="pt-4 border-t border-white/10 flex items-center justify-between text-xs text-slate-400 font-sans">

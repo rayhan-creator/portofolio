@@ -9,16 +9,16 @@ export default defineConfig({
     host: true
   },
   build: {
-    chunkSizeWarningLimit: 1200,
+    chunkSizeWarningLimit: 1400,
     rollupOptions: {
       output: {
         manualChunks: {
           'three-vendor': ['three', '@react-three/fiber', '@react-three/drei'],
           'motion-vendor': ['framer-motion', 'gsap', 'lenis'],
           'ui-vendor': ['lucide-react', 'lottie-react', 'canvas-confetti'],
+          'pdf-vendor': ['pdfjs-dist'],
         }
       }
     }
   }
 })
-

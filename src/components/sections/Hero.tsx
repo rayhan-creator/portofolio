@@ -1,15 +1,15 @@
 import { useState, useRef } from 'react'
 import { motion, useSpring } from 'framer-motion'
-import { ArrowDownRight, Sparkles, Code2, Compass, Layers, FileText, Send } from 'lucide-react'
+import { ArrowDownRight, Sparkles, Code2, Compass, Layers, FileText, Send, Award } from 'lucide-react'
 import { RAYHAN_PROFILE } from '../../data/mockCms'
 
 interface HeroProps {
   onExploreWork: () => void
   onOpenContact: () => void
-  onOpenCvModal: () => void
+  onExploreCertificates?: () => void
 }
 
-export function Hero({ onExploreWork, onOpenContact, onOpenCvModal }: HeroProps) {
+export function Hero({ onExploreWork, onOpenContact, onExploreCertificates }: HeroProps) {
   const [isShattered, setIsShattered] = useState(false)
   const containerRef = useRef<HTMLDivElement>(null)
 
@@ -69,7 +69,7 @@ export function Hero({ onExploreWork, onOpenContact, onOpenCvModal }: HeroProps)
           <span className="text-xs font-serif italic text-cyan-300">Edition 2026/2027</span>
         </motion.div>
 
-        {/* Exploding Text Container with 3D Portrait Layer */}
+        {/* Exploding Text Container with User's Real 3D Portrait Layer */}
         <div
           className="relative py-6 sm:py-8 select-none group cursor-pointer"
           onMouseEnter={() => setIsShattered(true)}
@@ -77,7 +77,7 @@ export function Hero({ onExploreWork, onOpenContact, onOpenCvModal }: HeroProps)
           data-cursor="pointer"
           data-cursor-text="SHATTER"
         >
-          {/* 3D PORTRAIT & HOLOGRAPHIC REVELATION LAYER */}
+          {/* 3D PORTRAIT & HOLOGRAPHIC REVELATION LAYER (Real Photo of Rayhan Adrian) */}
           <motion.div
             animate={{
               opacity: isShattered ? 1 : 0.08,
@@ -90,16 +90,16 @@ export function Hero({ onExploreWork, onOpenContact, onOpenCvModal }: HeroProps)
           >
             <div className="relative w-64 h-64 sm:w-80 sm:h-80 rounded-full p-1 bg-gradient-to-tr from-cyan-400 via-emerald-400 to-violet-500 shadow-[0_0_80px_rgba(6,182,212,0.45)]">
               {/* Glass Ring Halo */}
-              <div className="w-full h-full rounded-full overflow-hidden relative bg-slate-950/85 backdrop-blur-2xl border border-white/30 flex items-center justify-center">
+              <div className="w-full h-full rounded-full overflow-hidden relative bg-slate-950/90 backdrop-blur-2xl border border-white/30 flex items-center justify-center">
                 <img
-                  src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?auto=format&fit=crop&w=800&q=80"
-                  alt="Rayhan Adrian Developer Portrait"
-                  className="w-full h-full object-cover object-center mix-blend-luminosity hover:mix-blend-normal opacity-90 scale-105 transition-all duration-700"
+                  src={RAYHAN_PROFILE.photoUrl}
+                  alt={RAYHAN_PROFILE.fullName}
+                  className="w-full h-full object-cover object-top opacity-95 scale-105 transition-all duration-700"
                 />
-                <div className="absolute inset-0 bg-gradient-to-b from-transparent via-cyan-400/10 to-transparent animate-pulse pointer-events-none" />
+                <div className="absolute inset-0 bg-gradient-to-b from-transparent via-cyan-400/10 to-slate-950/70 pointer-events-none" />
                 <div className="absolute bottom-4 inset-x-4 py-1.5 px-3 rounded-full bg-slate-900/90 backdrop-blur-md border border-white/20 text-center">
                   <span className="text-[11px] font-sans font-semibold text-cyan-200 tracking-wider">
-                    RAYHAN ADRIAN // DEV CORE
+                    {RAYHAN_PROFILE.fullName.toUpperCase()}
                   </span>
                 </div>
               </div>
@@ -179,7 +179,7 @@ export function Hero({ onExploreWork, onOpenContact, onOpenCvModal }: HeroProps)
           transition={{ duration: 0.8, delay: 0.2 }}
           className="max-w-2xl font-sans font-light text-fluid-body text-slate-300 mt-6 sm:mt-8 leading-relaxed"
         >
-          Spesialis dalam merancang & membangun website modern yang memadukan <span className="text-cyan-300 font-medium">clean code</span>, interaksi <span className="text-emerald-300 font-medium">Three.js 3D</span>, dan estetika <span className="text-violet-300 font-medium">Glassmorphism</span>. Menghadirkan web yang responsif, cepat, dan senyaman berjalan di hutan yang tenang 🌲.
+          Siswa Rekayasa Perangkat Lunak di <span className="text-white font-medium">Rabbaanii Islamic School</span>. Spesialis dalam merancang & membangun website modern yang memadukan <span className="text-cyan-300 font-medium">clean code</span>, interaksi <span className="text-emerald-300 font-medium">Three.js 3D</span>, dan estetika <span className="text-violet-300 font-medium">Glassmorphism</span>.
         </motion.p>
 
         {/* Fluid Action Island */}
@@ -187,47 +187,49 @@ export function Hero({ onExploreWork, onOpenContact, onOpenCvModal }: HeroProps)
           initial={{ opacity: 0, y: 30 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8, delay: 0.4 }}
-          className="mt-10 flex flex-wrap items-center justify-center gap-3 sm:gap-5"
+          className="mt-10 flex flex-wrap items-center justify-center gap-3 sm:gap-4"
         >
-          {/* Primary Action Button */}
-          <button
-            onClick={onExploreWork}
+          {/* Direct Resume / CV Link that directly opens the uploaded PDF */}
+          <a
+            href={RAYHAN_PROFILE.cvPdfUrl}
+            target="_blank"
+            rel="noopener noreferrer"
             data-cursor="pointer"
             className="group relative px-7 py-3.5 rounded-2xl bg-gradient-to-r from-cyan-400 via-teal-300 to-cyan-200 text-slate-950 font-sans font-semibold text-sm tracking-wide shadow-[0_0_35px_rgba(6,182,212,0.4)] hover:shadow-[0_0_50px_rgba(6,182,212,0.8)] transition-all duration-300 hover:scale-[1.03] active:scale-[0.98] flex items-center gap-2.5"
           >
-            <Compass className="w-4 h-4 text-slate-900 group-hover:rotate-45 transition-transform duration-300" />
-            <span>Lihat Karya Portofolio</span>
-            <ArrowDownRight className="w-4 h-4 text-slate-900 group-hover:translate-x-0.5 group-hover:translate-y-0.5 transition-transform" />
-          </button>
+            <FileText className="w-4 h-4 text-slate-950 group-hover:rotate-12 transition-transform duration-300" />
+            <span>Buka Resume / CV (PDF)</span>
+            <ArrowDownRight className="w-4 h-4 text-slate-950 group-hover:translate-x-0.5 group-hover:translate-y-0.5 transition-transform" />
+          </a>
 
-          {/* Resume Modal Button */}
+          {/* Certificates Carousel Shortcut */}
           <button
-            onClick={onOpenCvModal}
+            onClick={onExploreCertificates}
             data-cursor="pointer"
             className="group relative px-6 py-3.5 rounded-2xl bg-white/10 hover:bg-white/15 border border-white/15 hover:border-cyan-400/50 text-slate-200 font-sans font-medium text-sm tracking-wide shadow-glass transition-all duration-300 hover:scale-[1.02] flex items-center gap-2"
           >
-            <FileText className="w-4 h-4 text-cyan-400" />
-            <span>Curriculum Vitae</span>
+            <Award className="w-4 h-4 text-cyan-400 group-hover:scale-110 transition-transform" />
+            <span>Lihat Sertifikat</span>
           </button>
 
-          {/* Secondary Glass Action Button */}
+          {/* Work Gallery Shortcut */}
           <button
-            onClick={onOpenContact}
+            onClick={onExploreWork}
             data-cursor="pointer"
             className="group relative px-6 py-3.5 rounded-2xl bg-slate-900/60 backdrop-blur-xl border border-white/15 hover:border-emerald-400/50 text-slate-200 font-sans font-medium text-sm tracking-wide shadow-glass hover:bg-white/[0.08] transition-all duration-300 hover:scale-[1.02] flex items-center gap-2"
           >
-            <Send className="w-4 h-4 text-emerald-400 group-hover:translate-x-0.5 transition-transform" />
-            <span>Hubungi Rayhan</span>
+            <Compass className="w-4 h-4 text-emerald-400 group-hover:rotate-45 transition-transform" />
+            <span>Portofolio Web</span>
           </button>
         </motion.div>
 
         {/* Fluid Badges Grid */}
         <div className="mt-16 sm:mt-20 grid grid-cols-2 sm:grid-cols-4 gap-3 sm:gap-4 w-full max-w-4xl">
           {[
-            { label: 'Keahlian Utama', val: 'React & Tailwind', desc: 'Modern Front-End Stack' },
-            { label: 'Performa Web', val: '120 FPS / 60 FPS', desc: 'Hardware Shaders' },
-            { label: 'Estetika UI', val: 'Glassmorphism', desc: 'Iridescent & Dark Material' },
-            { label: 'Responsif', val: '100% Fluid Clamp', desc: 'Tanpa Breakpoint Kaku' },
+            { label: 'Prestasi Akademik', val: 'Ranking 1 (3 Smt)', desc: 'Bintang Prestasi RPL' },
+            { label: 'Hafalan Al-Qur\'an', val: '24 Juz', desc: 'Mutqin & Istiqomah' },
+            { label: 'Sertifikasi', val: 'Dicoding & Udemy', desc: 'AWS Cloud, SDD, UI/UX' },
+            { label: 'Olahraga', val: 'Juara 1 Emas', desc: 'Taekwondo Indonesia' },
           ].map((item, idx) => (
             <div
               key={idx}
