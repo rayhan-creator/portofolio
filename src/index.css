@@ -1,0 +1,176 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --bg-deep: #0f172a;
+  --glass-surface: rgba(15, 23, 42, 0.65);
+  --glass-border: rgba(255, 255, 255, 0.08);
+  --glass-border-hover: rgba(255, 255, 255, 0.22);
+  --glass-specular: rgba(255, 255, 255, 0.15);
+  --accent-cyan: #06b6d4;
+  --accent-violet: #8b5cf6;
+  --accent-emerald: #10b981;
+}
+
+html {
+  background-color: var(--bg-deep);
+  color-scheme: dark;
+}
+
+/* Lenis Recommended Styles */
+html.lenis, html.lenis body {
+  height: auto;
+}
+
+.lenis.lenis-smooth {
+  scroll-behavior: auto !important;
+}
+
+.lenis.lenis-smooth [data-lenis-prevent] {
+  overscroll-behavior: contain;
+}
+
+.lenis.lenis-stopped {
+  overflow: hidden;
+}
+
+.lenis.lenis-scrolling iframe {
+  pointer-events: none;
+}
+
+/* Custom Sleek Glass Scrollbar */
+::-webkit-scrollbar {
+  width: 8px;
+  height: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: rgba(15, 23, 42, 0.8);
+}
+
+::-webkit-scrollbar-thumb {
+  background: rgba(255, 255, 255, 0.12);
+  border-radius: 9999px;
+  border: 2px solid transparent;
+  background-clip: padding-box;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: rgba(6, 182, 212, 0.4);
+}
+
+/* Fluid Typography Utilities */
+.text-fluid-hero {
+  font-size: clamp(2.75rem, 6.5vw + 0.5rem, 7.5rem);
+  line-height: 1.05;
+  letter-spacing: -0.025em;
+}
+
+.text-fluid-h2 {
+  font-size: clamp(2rem, 4vw + 0.25rem, 4rem);
+  line-height: 1.15;
+  letter-spacing: -0.02em;
+}
+
+.text-fluid-h3 {
+  font-size: clamp(1.25rem, 2.2vw + 0.25rem, 2rem);
+  line-height: 1.25;
+}
+
+.text-fluid-body {
+  font-size: clamp(0.925rem, 0.4vw + 0.85rem, 1.125rem);
+  line-height: 1.65;
+}
+
+/* Glassmorphism Surface Base */
+.glass-panel {
+  background: linear-gradient(135deg, rgba(255, 255, 255, 0.05) 0%, rgba(255, 255, 255, 0.015) 100%), rgba(15, 23, 42, 0.75);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  border: 1px solid rgba(255, 255, 255, 0.09);
+  box-shadow: 0 10px 30px -10px rgba(0, 0, 0, 0.5), inset 0 1px 1px 0 rgba(255, 255, 255, 0.12);
+}
+
+.glass-panel-glow {
+  position: relative;
+  background: linear-gradient(135deg, rgba(255, 255, 255, 0.07) 0%, rgba(255, 255, 255, 0.02) 100%), rgba(15, 23, 42, 0.8);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  box-shadow: 0 12px 40px -10px rgba(0, 0, 0, 0.6), inset 0 1px 1px 0 rgba(255, 255, 255, 0.18);
+  transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.glass-panel-glow:hover {
+  border-color: rgba(6, 182, 212, 0.4);
+  box-shadow: 0 20px 50px -15px rgba(6, 182, 212, 0.25), 0 0 25px -5px rgba(139, 92, 246, 0.2), inset 0 1px 2px 0 rgba(255, 255, 255, 0.25);
+  transform: translateY(-2px);
+}
+
+/* Iridescent Text Effect */
+.text-iridescent {
+  background: linear-gradient(135deg, #ffffff 0%, #cbd5e1 35%, #06b6d4 70%, #8b5cf6 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-size: 200% auto;
+}
+
+.text-shimmer {
+  background: linear-gradient(90deg, #f8fafc 0%, #94a3b8 20%, #38bdf8 40%, #c084fc 60%, #f8fafc 80%);
+  background-size: 200% auto;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  animation: shimmer 6s linear infinite;
+}
+
+/* Fluid Horizontal Grid Track */
+.horizontal-scroll-track {
+  display: flex;
+  gap: 2rem;
+  width: max-content;
+  will-change: transform;
+}
+
+/* Floating Form Label Styles */
+.floating-input-group {
+  position: relative;
+}
+
+.floating-input {
+  width: 100%;
+  background: rgba(15, 23, 42, 0.5);
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  border-radius: 0.75rem;
+  padding: 1.15rem 1.25rem 0.65rem;
+  color: #f8fafc;
+  outline: none;
+  font-family: 'Poppins', sans-serif;
+  font-size: 1rem;
+  transition: all 0.25s ease;
+  backdrop-filter: blur(12px);
+}
+
+.floating-input:focus {
+  border-color: #06b6d4;
+  box-shadow: 0 0 0 3px rgba(6, 182, 212, 0.15), 0 10px 20px -5px rgba(6, 182, 212, 0.2);
+  background: rgba(15, 23, 42, 0.7);
+}
+
+.floating-label {
+  position: absolute;
+  top: 1.15rem;
+  left: 1.25rem;
+  font-size: 0.95rem;
+  color: #94a3b8;
+  pointer-events: none;
+  transition: all 0.2s cubic-bezier(0.16, 1, 0.3, 1);
+  transform-origin: left top;
+}
+
+.floating-input:focus ~ .floating-label,
+.floating-input:not(:placeholder-shown) ~ .floating-label {
+  transform: translateY(-0.75rem) scale(0.78);
+  color: #38bdf8;
+  font-weight: 500;
+}
