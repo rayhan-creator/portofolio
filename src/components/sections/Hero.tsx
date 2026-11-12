@@ -24,7 +24,7 @@ export function Hero({ onOpenContact, onExploreCertificates }: HeroProps) {
     mouseY.set(y * 30)
   }
 
-  const primaryTitle = "MUHAMMAD RAYHAN ADRIAN"
+  const primaryTitle = "M RAYHAN ADRIAN"
   const secondaryTitle = "REKAYASA PERANGKAT LUNAK // UI/UX & WEB DEVELOPER"
 
   // Shatter physics vectors for each letter
